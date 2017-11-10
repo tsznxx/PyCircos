@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -- coding:utf-8 --
-# Last-modified: 10 Nov 2017 04:44:29 PM
+# Last-modified: 10 Nov 2017 05:32:59 PM
 #
 #         Module/Scripts Description
 # 
@@ -87,23 +87,20 @@ class Circos(object):
     def get_theta(self,gid,pos):
         '''
         get the theta of the position.
+        Parameters:
+            gid: string or list
+                chrom labels
+            pos: int or list
+                chrom coordinates
+        Note:
+            gid and pos must be the same length if they are lists.
         '''        
         if isinstance(pos,int) or isinstance(pos,float):
-            et = self.regions.loc[gid,'theta_start']+(pos-self.regions.loc[gid,'start'])/self.len_per_theta
+            et = self.regions.loc[gid,'theta_start']+pos/self.len_per_theta
             return et
         # iterable
-        ets = list(self.regions.loc[gid,'theta_start']+(list(pos)-self.regions.loc[gid,'start'])/self.len_per_theta)
+        ets = [self.regions.loc[g,'theta_start']+(p/self.len_per_theta) for g,p in zip(gid,pos)]
         return ets
-    def get_degree(self,gid,pos):
-        '''
-        get the degree of the position.
-        '''        
-        if isinstance(pos,int) or isinstance(pos,float):
-            deg = self.regions.loc[gid,'theta_start']+(pos-self.regions.loc[gid,'start'])/self.len_per_degree
-            return deg
-        # iterable
-        degs = list(self.regions.loc[gid,'theta_start']+(list(pos)-self.regions.loc[gid,'start'])/self.len_per_degree)
-        return degs 
     def draw_scaffold(self,rad,width,colors=[],fill=False,**kwargs):
         '''
         Draw scaffold.
@@ -233,7 +230,7 @@ class Circos(object):
         rads = [rad,rad]
         facecolor = kwargs.get('facecolor','red')
         for gid, start, end, score in zip(data[gid],data[start],data[end],data[score]):
-            ets = self.get_theta(gid,[start,end])
+            ets = self.get_theta([gid,gid],[start,end])
             kwargs['facecolor'] = facecolor if abs(score)>cutoff else 'grey'                
             score = scale*score + rad
             self.pax.fill_between(ets,rads,[score, score],**kwargs)
@@ -275,5 +272,4 @@ class Circos(object):
 # ------------------------------------
 
 if __name__=="__main__":
-    pass	
-
+    pass    
