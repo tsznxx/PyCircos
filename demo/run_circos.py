@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -- coding:utf-8 --
-# Last-modified: 10 Nov 2017 04:56:39 PM
+# Last-modified: 10 Nov 2017 05:41:24 PM
 #
 #         Module/Scripts Description
 # 
@@ -23,6 +23,7 @@ import os
 import sys
 import pandas
 import pycircos
+import matplotlib.pyplot as plt
 
 # ------------------------------------
 # constants
@@ -42,15 +43,15 @@ import pycircos
 
 if __name__=="__main__":
     if len(sys.argv)==1:
-        sys.exit("Example:"+sys.argv[0]+" infile1 infile2 [infile3 ...]\n{0} ".format(DESCRIPTION))
+        sys.exit("Example:"+sys.argv[0]+" run")
 
     CNV = pandas.read_table("scores.gistic")
     CNV['chrom'] = 'chr' + CNV.Chromosome.astype(str)
     CNV = CNV.sort_values(['Chromosome','Start'])
+    CNV.loc[CNV.Type=='Del','frequency'] *= -1
     
     AMP = CNV.loc[CNV.Type=='Amp',:]
     DEL = CNV.loc[CNV.Type=='Del',:]
-    DEL.loc[:,'frequency'] *= -1
     
     chromsizes = pandas.read_table("hg19.fa.sizes",index_col=0,header=None,names=['start','length','chrom'])
     cg = pycircos.Circos(chromsizes, gap=2)
