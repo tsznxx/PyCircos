@@ -1,4 +1,2 @@
 include install.sh
 include RELEASE
-recursive-include external/KentLib *
-recursive-exclude external/KentLib *.o *.so *.a
