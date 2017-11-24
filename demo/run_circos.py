@@ -53,7 +53,7 @@ if __name__=="__main__":
     AMP = CNV.loc[CNV.Type=='Amp',:]
     DEL = CNV.loc[CNV.Type=='Del',:]
     
-    chromsizes = pandas.read_table("hg19.fa.sizes",index_col=0,header=None,names=['start','length','chrom'])
+    chromsizes = pandas.read_table("hg19.fa.sizes",index_col=0,header=None,names=['length'])
     cg = pycircos.Circos(chromsizes, gap=2)
     # draw cytoband
     cg.draw_cytobands(8.1,0.3,"cytoBand.txt.gz")
