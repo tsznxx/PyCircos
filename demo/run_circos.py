@@ -22,6 +22,9 @@
 import os
 import sys
 import pandas
+import matplotlib
+if not 'DISPLAY' in os.environ:
+    matplotlib.use('Agg') # if DISPLAY is not set
 import pycircos
 import matplotlib.pyplot as plt
 
