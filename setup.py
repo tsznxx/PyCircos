@@ -59,7 +59,9 @@ if __name__ == '__main__':
         os.system('if [ -d {0}.egg-info ]; then rm -rf {0}.egg-info; fi'.format(PROG))
     
     # install requirement
-    install_requires = [ ["numpy >= 1.4.1"]]
+    install_requires = [["numpy >= 1.4.1"],
+                        ["matplotlib >= 2.0.0"],
+                        ["pandas >= 0.18.0"]]
     # Python 2.6 requires argparse
     if float(sys.version[:3]) == 2.6:
         install_requires.append(["argparse >= 1.2.1"])
