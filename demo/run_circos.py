@@ -28,25 +28,7 @@ if not 'DISPLAY' in os.environ:
 import pycircos
 import matplotlib.pyplot as plt
 
-# ------------------------------------
-# constants
-# ------------------------------------
-
-# ------------------------------------
-# Misc functions
-# ------------------------------------
-
-# ------------------------------------
-# Classes
-# ------------------------------------
-
-# ------------------------------------
-# Main
-# ------------------------------------
-
 if __name__=="__main__":
-    if len(sys.argv)==1:
-        sys.exit("Example:"+sys.argv[0]+" run")
 
     CNV = pandas.read_table("scores.gistic")
     CNV['chrom'] = 'chr' + CNV.Chromosome.astype(str)
@@ -66,13 +48,13 @@ if __name__=="__main__":
     cg.draw_ticks(8.1,0.2,inside=True)
     cg.draw_scaffold_ids(9.2,inside=False,fontsize=15)
     
-    # CNV
+    # # CNV
     cg.draw_scaffold(5.5,0.01)
-    cg.fill_between(5.5,AMP.iloc[:100,:],start='Start',end='End',score='frequency',scale=2.0,facecolor='red',alpha=0.5)
-    cg.fill_between(5.5,DEL.iloc[:100,:],start='Start',end='End',score='frequency',scale=2.0,facecolor='blue',alpha=0.5)
+    cg.fill_between(5.5,AMP.iloc[:,:],start='Start',end='End',score='frequency',scale=2.0,facecolor='red',alpha=0.5)
+    cg.fill_between(5.5,DEL.iloc[:,:],start='Start',end='End',score='frequency',scale=2.0,facecolor='blue',alpha=0.5)
     
     # draw links
     cg.draw_link(4.5,['chr1','chr4'],[10000000,10000000],[110000000,110000000],color='purple',alpha=0.5)
     cg.draw_link(4.5,['chr3','chr8'],[10000000,10000000],[110000000,110000000],color='lightblue',alpha=0.5)
     
-    plt.savefig('Circos.pdf')
+    plt.savefig('Circos3.pdf')

@@ -38,18 +38,14 @@ from setuptools import setup, find_packages, Extension
 # ------------------------------------
 
 if __name__ == '__main__':
-    if float(sys.version[:3])<2.6 or float(sys.version[:3])>=2.8:
-        sys.stderr.write("CRITICAL: Python version must be 2.6 or 2.7!\n")
-        sys.exit(1)
-
+    
     # includepy = "%s/include/python%s" % (sys.prefix, sys.version[:3])
     with open("README.rst",'r') as fh:
         long_description = fh.read()
         idx = long_description.find('\n')
         description = long_description[:idx].rstrip()
     # ngsplot version
-    with open('RELEASE','r') as fh:
-        PROG, VERSION = fh.next().rstrip().split()[:2]
+    PROG, VERSION = 'pycircos','1.0.1'
 
     # Compile Kent lib
     if 'clean' in sys.argv:
@@ -62,9 +58,14 @@ if __name__ == '__main__':
     install_requires = [["numpy >= 1.4.1"],
                         ["matplotlib >= 2.0.0"],
                         ["pandas >= 0.18.0"]]
-    # Python 2.6 requires argparse
+    # more options depends on python version
     if float(sys.version[:3]) == 2.6:
         install_requires.append(["argparse >= 1.2.1"])
+        package_dir={PROG:'v2'}
+    elif float(sys.version[:3])==2.7:
+        package_dir={PROG:'v2'}
+    elif float(sys.version[:3])>=3.4:
+        package_dir={PROG:'v3'}
 
     setup(name=PROG,
           version=VERSION,
@@ -75,7 +76,7 @@ if __name__ == '__main__':
           keywords = "Python NGS plot",
           description = (description),
           long_description = long_description,
-          package_dir={PROG:'src'},
+          package_dir=package_dir,
           packages = [PROG],
           scripts=[],
           ext_modules=[],
