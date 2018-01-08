@@ -3,13 +3,11 @@
 1. Prerequisition
 
 - Python 2.7 packages (automatically installed)
-
   - numpy >= 1.13.1
   - pandas >= 0.15.2
   - matplotlib >= 2.0.2
 
- - Python 3.4+ packages(automatically installed)
-
+- Python 3.4+ packages(automatically installed)
   - numpy >= 1.13.1
   - pandas >= 0.15.2
   - matplotlib >= 2.0.2
@@ -34,4 +32,6 @@
 4. Demo Results 
 
 ![](./demo.png)
+
+
 
