@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #Last-modified: 17 Jul 2017 11:00:55 AM
 
 #         Module/Scripts Description
@@ -14,28 +14,14 @@
 # @author:  Yunfei Wang
 # @contact: yfwang0405@gmail.com
 
-# ------------------------------------
-# python modules
-# ------------------------------------
+
+
+
 
 import os,sys
 from setuptools import setup, find_packages, Extension
 
-# ------------------------------------
-# constants
-# ------------------------------------
 
-# ------------------------------------
-# Misc functions
-# ------------------------------------
-
-# ------------------------------------
-# Classes
-# ------------------------------------
-
-# ------------------------------------
-# Main
-# ------------------------------------
 
 if __name__ == '__main__':
     
