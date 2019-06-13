@@ -20,7 +20,7 @@
     cd Pycircos
     python setup.py install [--user]
     ```
-    - install release brranch
+    - install release branch
     ```
     pip install pycircos
     ```
