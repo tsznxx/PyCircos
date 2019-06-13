@@ -19,17 +19,20 @@ Python Modules for Circos Plot
 ----------------
 
 ::
+git clone https://github.com/tsznxx/PyCircos.git
+cd Pycircos
+python setup.py install [--user]
 
-  > git clone https://github.com/tsznxx/PyCircos.git
-  > cd Pycircos
-  > python setup.py install [--user]
+or
+ 
+::
+pip install PyCircos
 
 3. Examples
 -------------
 
 ::
-
-  > cd demo
-  > python run_circos.py run
-  > display Circos.pdf
+cd demo
+python run_circos.py run
+display Circos.pdf
 
