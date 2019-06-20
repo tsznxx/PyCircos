@@ -13,7 +13,8 @@ install:
 
 # Run the unit test
 script:
-  - coverage run tests.py
+  - python setup.py install
+  - coverage run demo/run_circos.py
 
 # Push the results back to codecov
 after_success:
