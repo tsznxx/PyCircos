@@ -18,7 +18,8 @@ install:
 # Run the unit test
 script:
   - export CODECOV_TOKEN="e00c5f99-4f96-4cae-9bbc-d77668302050"
-  - coverage run ./demo/test.py
+  - cd demo
+  - coverage run ./test.py
 
 # Push the results back to codecov
 after_success:
