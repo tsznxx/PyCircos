@@ -1,3 +1,5 @@
+## ubuntu xenial need for Python >= 3.7
+dist: xenial 
 # Disable sudo to speed up the build
 sudo: false
 
@@ -5,7 +7,7 @@ sudo: false
 language: python
 
 # Set the python version to 2.7
-python: 2.7
+python: 3.7
 
 # Install the codecov pip dependency
 install:
@@ -13,8 +15,8 @@ install:
 
 # Run the unit test
 script:
-  - python setup.py install
-  - coverage run demo/run_circos.py
+  - export CODECOV_TOKEN="e00c5f99-4f96-4cae-9bbc-d77668302050"
+  - coverage run ./demo/test.py
 
 # Push the results back to codecov
 after_success:
