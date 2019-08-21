@@ -23,11 +23,11 @@
     ```
     git clone https://github.com/KimBioInfoStudio/PyCircos.git
     cd Pycircos
+    pip install -r requirements.txt
     python setup.py install [--user]
     ```
     - install release branch
     ```
-    pip install -r requirements.txt
     pip install pycircos
     ```
     
