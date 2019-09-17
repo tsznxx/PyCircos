@@ -1,41 +1,32 @@
-#!/usr/bin/env python
-#Last-modified: 17 Jul 2017 11:00:55 AM
-
-#         Module/Scripts Description
-# 
-# Copyright (c) 2008 Yunfei Wang <yfwang0405@gmail.com>
-# 
-# This code is free software; you can redistribute it and/or modify it
-# under the terms of the BSD License (see the file COPYING included with
-# the distribution).
-# 
-# @status:  experimental
-# @version: 1.1.0
-# @author:  Yunfei Wang
-# @contact: yfwang0405@gmail.com
-
-
-
+#! /usr/bin/env python
+# coding: utf-8 
+# branch: dev
+# version: 1.0.1
+# license: BSD,AGPL
+# author: Yunfei Wang (yfwang0405@gmail.com), 
+#         Baochen Yang (yangbaochen1217@gmail.com)
 
 
 import os,sys
 from setuptools import setup, find_packages, Extension
 
-
+def get_py_ver():
+    retrun float(sys.version[:3])
 
 if __name__ == '__main__':
     
-    # includepy = "%s/include/python%s" % (sys.prefix, sys.version[:3])
+    # decsription
     with open("README.rst",'r') as fh:
         long_description = fh.read()
         idx = long_description.find('\n')
         description = long_description[:idx].rstrip()
-    # ngsplot version
+    
+    # version
     PROG, VERSION = 'pycircos','1.0.1'
 
     # Compile Kent lib
     if 'clean' in sys.argv:
-        print >>sys.stderr, "Clean dist and egg info ..."
+        print >> sys.stderr, "Clean dist and egg info ..."
         os.system('if [ -d dist ]; then rm -rf dist; fi')
         os.system('if [ -f {0}.egg-info ]; then rm {0}.egg-info; fi'.format(PROG))
         os.system('if [ -d {0}.egg-info ]; then rm -rf {0}.egg-info; fi'.format(PROG))
@@ -50,7 +41,7 @@ if __name__ == '__main__':
     elif float(sys.version[:3]) == 2.7:
         print("Sorry, We do recommand that you shoud  move to a new version fo python  than  Python3.5+ ")
         package_dir={PROG:'v2'}
-        install_requires.append(["matplotlib == 2.0.2"])
+        install_requires.append(["matplotlib >= 2.0.2"])
     
     elif float(sys.version[:3]) >= 3.5:
         package_dir={PROG:'v3'}
