@@ -1,23 +1,11 @@
-#!/usr/bin/env python
-# -- coding:utf-8 --
-# Last-modified: 10 Nov 2017 05:32:59 PM
-#
-#         Module/Scripts Description
-# 
-# Copyright (c) 2016 Yunfei Wang <yfwang0405@gmail.com>
-# 
-# This code is free software; you can redistribute it and/or modify it
-# under the terms of the BSD License (see the file COPYING included with
-# the distribution).
-# 
-# @status:  experimental
-# @version: 1.0.0
-# @author:  Yunfei Wang
-# @contact: yfwang0405@gmail.com
+#!/usr/bin/env python3
+# coding: utf-8
+# branch: dev
+# version: 1.0.2
+# license: AGPLv3
+# author: Yunfei Wang (yfwang0405@gmail.com)
+#         Baochen Yang (yangbaochen1217@gmail.com) 
 
-# ------------------------------------
-# python modules
-# ------------------------------------
 
 import os
 import sys
@@ -26,18 +14,6 @@ import numpy
 import matplotlib.pyplot as plt
 from matplotlib.path import Path
 from matplotlib.patches import PathPatch
-
-# ------------------------------------
-# constants
-# ------------------------------------
-
-# ------------------------------------
-# Misc functions
-# ------------------------------------
-
-# ------------------------------------
-# Classes
-# ------------------------------------
 
 class Utils(object):
     def naturalkeys(text):
@@ -99,7 +75,7 @@ class Circos(object):
             et = self.regions.loc[gid,'theta_start']+pos/self.len_per_theta
             return et
         # iterable
-        ets = [self.regions.loc[g,'theta_start']+(p/self.len_per_theta) for g,p in zip(gid,pos)]
+        ets = [self.regions.loc[g,'theta_start']+(p/self.len_per_theta) for g,p in list(zip(gid,pos))]
         return ets
     def draw_scaffold(self,rad,width,colors=[],fill=False,**kwargs):
         '''
@@ -123,7 +99,7 @@ class Circos(object):
         for i,gid in enumerate(self.regions.index):
             if n:
                 kwargs['color'] = colors[i%n]
-            et1, et2 = self.regions.theta_start[gid], self.get_theta(gid,self.regions.length[gid]-1)            
+            et1, et2 = self.regions.theta_start[gid], self.get_theta([gid],[self.regions.length[gid]-1])            
             self.pax.bar([(et1+et2)/2],[width],width=et2-et1,bottom=rad,**kwargs)            
     def draw_ticks(self,rad,tick_length,tick_gap=50000000,unit=1000000,unit_label='M',inside=False,**kwargs):
         '''
@@ -146,7 +122,7 @@ class Circos(object):
         '''
         ml = max([len("{0}{1}".format(int(self.regions.loc[gid,'length']/unit),unit_label)) for gid in self.regions.index ]) # max ticklabel length
         for i,gid in enumerate(self.regions.index):
-            et1, et2 = self.regions.theta_start[gid], self.get_theta(gid,self.regions.length[gid]-1)
+            et1, et2 = self.regions.theta_start[gid], self.get_theta([gid],[self.regions.length[gid]-1])
             ets = numpy.arange(et1,et2,tick_gap/self.len_per_theta)
             if inside:
                 self.pax.vlines(ets,[rad]*len(ets),[rad-tick_length]*len(ets))
