@@ -11,7 +11,7 @@ import os,sys
 from setuptools import setup, find_packages, Extension
 
 def get_py_ver():
-    retrun float(sys.version[:3])
+    return float(sys.version[:3])
 
 if __name__ == '__main__':
     
