@@ -12,7 +12,7 @@ We deeply recommand all users using the python version 3.4+ Thx for yr
 - Python 2.7 packages (automatically installed)
   - numpy >= 1.13.1
   - pandas >= 0.15.2
-  - matplotlib==2.0 (matplotlib stop support python2.7 form version 2.0 )
+  - matplotlib == 2.0.2 (matplotlib stop support python2.7 form version 2.0 )
   
 
 - Python 3.4+ packages(automatically installed)
