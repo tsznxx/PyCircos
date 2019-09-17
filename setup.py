@@ -42,16 +42,18 @@ if __name__ == '__main__':
     
     # install requirement
     install_requires = [["numpy >= 1.4.1"],
-                        ["matplotlib >= 2.0.0"],
                         ["pandas >= 0.18.0"]]
     # more options depends on python version
     if float(sys.version[:3]) == 2.6:
         install_requires.append(["argparse >= 1.2.1"])
+        install_requires.append(["matplotlib == 2.0.0 "])
         package_dir={PROG:'v2'}
     elif float(sys.version[:3])==2.7:
         package_dir={PROG:'v2'}
+        install_requires.append(["matplotlib == 2.0.2"])
     elif float(sys.version[:3])>=3.4:
         package_dir={PROG:'v3'}
+        install_requires.append(["matplotlib >= 2.0.2"])
 
     setup(name=PROG,
           version=VERSION,
