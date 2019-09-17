@@ -46,13 +46,13 @@ if __name__ == '__main__':
     # more options depends on python version
     if float(sys.version[:3]) <= 2.6:
         print("Sorry, We do recommand that you shoud  move to a new version fo python  than  Python3.5+ ")
-        break
-    elif float(sys.version[:3])==2.7:
+        pass
+    elif float(sys.version[:3]) == 2.7:
         print("Sorry, We do recommand that you shoud  move to a new version fo python  than  Python3.5+ ")
         package_dir={PROG:'v2'}
         install_requires.append(["matplotlib == 2.0.2"])
     
-    elif float(sys.version[:3])>=3.5:
+    elif float(sys.version[:3]) >= 3.5:
         package_dir={PROG:'v3'}
         install_requires.append(["matplotlib >= 2.0.2"])
 
