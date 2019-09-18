@@ -15,9 +15,10 @@ if not 'DISPLAY' in os.environ:
 import pycircos
 import matplotlib.pyplot as plt
 
-if __name__=="__main__":
 
-    CNV = pandas.read_table("./data/scores.gistic")
+def test():
+    chroot=sys.path[0]
+    CNV = pandas.read_table(os.path.join(chroot,"data/scores.gistic"))
     CNV['chrom'] = 'chr' + CNV.Chromosome.astype(str)
     CNV = CNV.sort_values(['Chromosome','Start'])
     CNV.loc[CNV.Type=='Del','frequency'] *= -1
@@ -25,11 +26,11 @@ if __name__=="__main__":
     AMP = CNV.loc[CNV.Type=='Amp',:]
     DEL = CNV.loc[CNV.Type=='Del',:]
     
-    chromsizes = pandas.read_table("./data/hg19.fa.sizes",index_col=0,header=None,names=['length'])
+    chromsizes = pandas.read_table(os.path.join(chroot,"data/hg19.fa.sizes"),index_col=0,header=None,names=['length'])
     cg = pycircos.Circos(chromsizes, gap=2)
     
     # draw cytoband
-    cg.draw_cytobands(8.1,0.3,"./data/cytoBand.txt.gz")
+    cg.draw_cytobands(8.1,0.3,os.path.join(chroot,"data/cytoBand.txt.gz"))
     
     # draw chrom region
     cg.draw_scaffold(8.1,0.3)
@@ -44,5 +45,8 @@ if __name__=="__main__":
     # draw links
     cg.draw_link(4.5,['chr1','chr4'],[10000000,10000000],[110000000,110000000],color='purple',alpha=0.5)
     cg.draw_link(4.5,['chr3','chr8'],[10000000,10000000],[110000000,110000000],color='lightblue',alpha=0.5)
+    # save result to a png file
+    plt.savefig(os.path.join(chroot,"./demo.png"))
     
-    plt.savefig('./demo.png')
+if __name__=="__main__":
+    test()

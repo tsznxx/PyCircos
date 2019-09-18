@@ -18,7 +18,7 @@ def main():
         # decsription
         with open("README.md", 'r') as md:
             long_description = md.read()
-        setup(name='PyCircos',
+        setup(name='pycircos',
               version='1.0.1',
               author='Yunfei Wang, Baochen Yang',
               author_email='yfwang0405@gmail.com, yangbaochen1217@gmail.com',
@@ -27,8 +27,8 @@ def main():
               keywords="Python NGS Circos Plot",
               description=("This Tools is Design for NGS Circos Plot with using Python."),
               long_description=long_description,
-              package_dir={'':'src'},
-              packages=find_packages('src'),
+              package_dir={'pycircos':'src'},
+              packages=['pycircos'],
               scripts=[],
               ext_modules=[],
               classifiers=['Environment :: Console',
