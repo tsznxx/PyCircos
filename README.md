@@ -1,11 +1,11 @@
 # Python Modules for Circos Plot
 
-![travis-ci](https://www.travis-ci.org/KimBioInfoStudio/PyCircos.svg?branch=develop)
+[![Build Status](https://travis-ci.com/KimBioInfoStudio/PyCircos.svg?branch=develop)](https://travis-ci.com/KimBioInfoStudio/PyCircos)
 ![codecov](https://codecov.io/gh/KimBioInfoStudio/PyCircos/branch/develop/graph/badge.svg)
-![PyPI - Wheel](https://img.shields.io/pypi/wheel/yes.svg)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/python2.svg)
 
-## 1.Pre Installation
+
+
+## 1. Pre Installation
 
 > As official, Pyhton2 will end life form 2020-1-1, So we develop a new version support Python3.5+, We deeply recommand all users using the python version 3.5+, Thx!
 
@@ -16,7 +16,7 @@
 3. matplotlib
 
 
-## 2.Installation
+## 2. Installation
 ### intall dev branch
 
 1. install from source code 
@@ -33,7 +33,6 @@ python3 setup.py install [--user]
 ```
 git clone https://github.com/KimBioInfoStudio/PyCircos.git
 cd PyCircos
-make  
 make install 
 ```
 
