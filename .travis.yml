@@ -7,13 +7,21 @@ sudo: false
 language: python
 
 # Set the python version to 3.7
-python: 3.7
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"      # current default Python on Travis CI
+  - "3.7"
+  - "3.7-dev"  # 3.7 development branch
+  - "3.8-dev"  # 3.8 development branch
+  - "nightly"  # nightly build
+# command to install dependencies
 
 # Install the codecov pip dependency
 install:
-  - pip install -r ./requirements.txt
   - pip install codecov
-  - python setup.py install
+  - make install 
 
 # Run the unit test
 script:
