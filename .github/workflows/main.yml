@@ -1,4 +1,4 @@
-name: test demo
+name: Auto CI Test On Github Actions 
 
 on: [push]
 
