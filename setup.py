@@ -7,17 +7,21 @@
 #         Baochen Yang (yangbaochen1217@gmail.com)
 
 
-import os
 import sys
-from setuptools import setup, find_packages, Extension
+from setuptools import setup
 
 
 def main():
+    '''
+    python  setup.py  install script
+    --------------------------------
+    '''
 
     if float(sys.version[:3]) >= 3.5:
         # decsription
-        with open("README.md", 'r') as md:
-            long_description = md.read()
+        with open("README.md", 'r') as readme:
+            long_description = readme.read()
+
         setup(
             name='pycircos',
             version='1.0.2',
@@ -46,9 +50,8 @@ def main():
                 'Programming Language :: Python :: 3.5',
                 'Programming Language :: Python :: 3.6',
                 'Programming Language :: Python :: 3.7',
-                'Topic :: Scientific/Engineering :: Bio-Informatics'
-                           ],
-            install_requires=['numpy','pandas','matplotlib'],
+                'Topic :: Scientific/Engineering :: Bio-Informatics'],
+            install_requires=['numpy', 'pandas', 'matplotlib'],
             python_requires='>=3.5')
     else:
         print("[ WARNING ]")
