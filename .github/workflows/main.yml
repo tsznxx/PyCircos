@@ -29,9 +29,9 @@ jobs:
           
       - name: Check Code Style With Pylint
         run: |
-          python -m pylint -v ./*.py
-          python -m pylint -v ./src/*.py 
-          python -m pylint -v ./test/*.py
+          #python -m pylint -v ./*.py
+          #python -m pylint -v ./src/*.py 
+          #python -m pylint -v ./test/*.py
         
       - name: Test With Demo Files
         run: |
