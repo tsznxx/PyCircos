@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # coding: utf-8
 # branch: dev
-# version: 1.0.2
+# version: 1.0.3
 # license: AGPLv3
 # author: Yunfei Wang (yfwang0405@gmail.com),
 #         Baochen Yang (yangbaochen1217@gmail.com)
@@ -18,7 +18,7 @@ if LooseVersion(sys.version) >= LooseVersion("3.5"):
 
     setup(
         name='pycircos',
-        version='1.0.2',
+        version='1.0.3',
         author='Yunfei Wang, Baochen Yang',
         author_email='yfwang0405@gmail.com, yangbaochen1217@gmail.com',
         url='https://github.com/KimBioInfoStudio/PyCircos',

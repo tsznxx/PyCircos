@@ -31,7 +31,7 @@ def test():
     # draw cytoband
     cg.draw_cytobands(8.1, 0.3, os.path.join(chroot, "data/cytoBand.txt.gz"))
 
-    # draw chrom region
+    # # draw chrom region
     cg.draw_scaffold(8.1, 0.3)
     cg.draw_ticks(8.1, 0.2, inside=True)
     cg.draw_scaffold_ids(9.2, inside=False, fontsize=15)
